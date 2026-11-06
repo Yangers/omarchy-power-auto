@@ -1,0 +1,21 @@
+[package]
+name = "omarchy-power-auto"
+version = "0.1.0"
+edition = "2024"
+authors = ["Yangers Puentes <yangers@gmail.com>"]
+description = "Intelligent Power & Thermal Profile Manager for Omarchy Linux (ThinkPad X1 Carbon)"
+license = "MIT"
+
+[dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.6.7", features = ["derive"] }
+futures-util = "0.3.34"
+tokio = { version = "1.54.1", features = ["full", "macros", "signal"] }
+zbus = "5"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

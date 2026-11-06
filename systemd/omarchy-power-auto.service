@@ -1,0 +1,14 @@
+[Unit]
+Description=Omarchy Automatic Power Profile Manager
+After=power-profiles-daemon.service dbus.socket
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/omarchy-power-auto --daemon
+Restart=always
+RestartSec=3
+Environment=PATH=%h/.local/bin:/usr/share/omarchy/bin:/usr/local/bin:/usr/bin
+
+[Install]
+WantedBy=graphical-session.target
